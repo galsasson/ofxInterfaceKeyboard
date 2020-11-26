@@ -214,7 +214,7 @@ void ofxInterfaceKeyboard::handleSpecialKey(const string & key){
 
 void ofxInterfaceKeyboard::onSpecialKeyClick(TouchEvent & t){
 	KeyboardButton * b = (KeyboardButton *)t.receiver;
-	ofLogNotice("ofxInterfaceKeyboard") << "user pressed special key '" << b->specialCommand << "'";
+	ofLogVerbose("ofxInterfaceKeyboard") << "user pressed special key '" << b->specialCommand << "'";
 	handleSpecialKey(b->specialCommand);
 
 	KeyboardEvent ke;
@@ -227,7 +227,7 @@ void ofxInterfaceKeyboard::onSpecialKeyClick(TouchEvent & t){
 void ofxInterfaceKeyboard::onModifierKeyClick(TouchEvent & t){
 
 	KeyboardButton * b = (KeyboardButton *)t.receiver;
-	ofLogNotice("ofxInterfaceKeyboard") << "user pressed modifier key '" << b->modifier << "'";
+	ofLogVerbose("ofxInterfaceKeyboard") << "user pressed modifier key '" << b->modifier << "'";
 	toggleState(b->modifier);
 
 	KeyboardEvent ke;
@@ -241,7 +241,7 @@ void ofxInterfaceKeyboard::onCharKeyClick(TouchEvent & t){
 	KeyboardButton * b = (KeyboardButton *)t.receiver;
 	string keyCode = b->keycodeForState(stateStr);
 	if(keyCode.size()){
-		ofLogNotice("ofxInterfaceKeyboard") << "user pressed char key '" << keyCode << "'";
+		ofLogVerbose("ofxInterfaceKeyboard") << "user pressed char key '" << keyCode << "'";
 		content += keyCode;
 		KeyboardEvent ke;
 		ke.type = KeyboardButton::CHAR_KEY;

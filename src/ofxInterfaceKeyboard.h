@@ -32,7 +32,7 @@ public:
 		if(it != chars.end()){
 			return it->second;
 		}
-		ofLogWarning("KeyboardButton") << "key has no char for current state! " << currentState;
+		ofLogVerbose("KeyboardButton") << "key has no char for current state! " << currentState;
 		return "";
 	}
 };
